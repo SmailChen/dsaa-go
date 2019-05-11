@@ -1,3 +1,4 @@
+// 问题: 给定两个排序后的表L1和L2.写出一个程序仅使用基本的表操作来计算L1 ∪ L2。
 package main
 
 import (
@@ -63,27 +64,27 @@ func unionList(L1 *list.List, L2 *list.List) *list.List {
 }
 
 func main() {
-	L := list.New()
-	P := list.New()
+	L1 := list.New()
+	L2 := list.New()
 
-	// L 升序排列
+	// L1 升序排列
 	for i := 0; i < ListNum; i++ {
-		L.PushBack(i * 2)
+		L1.PushBack(i * 2)
 	}
-	// P 升序排列
+	// L2 升序排列
 	for i := 0; i < ListNum/2; i++ {
-		P.PushBack(i + 2)
+		L2.PushBack(i + 2)
 	}
 
-	l := unionList(P, L)
+	l := unionList(L1, L2)
 
 	// 打印结果
-	for e := L.Front(); e != nil; e = e.Next() {
+	for e := L1.Front(); e != nil; e = e.Next() {
 		fmt.Print(e.Value, " ")
 	}
 	fmt.Println()
 
-	for e := P.Front(); e != nil; e = e.Next() {
+	for e := L2.Front(); e != nil; e = e.Next() {
 		fmt.Print(e.Value, " ")
 	}
 	fmt.Println()
