@@ -11,6 +11,7 @@ package main
 
 import (
 	"dsaa-go/chapter3/slist"
+	"dsaa-go/chapter3/utils"
 	"fmt"
 )
 
@@ -32,15 +33,16 @@ func main() {
 	fmt.Println("====")
 
 	//检测值X是否在链表中
-	fmt.Println("pos:", L.IsElement(6))
+	_, pos := L.IsElement(6, utils.IntComparator)
+	fmt.Println("pos:", pos)
 	fmt.Println("====")
 
 	//如果值X没在链表中，则将其加入链表
-	L.HasElement(50)
+	L.HasElement(50, utils.IntComparator)
 	L.Print()
 	fmt.Println("====")
 
 	//如果值x包含在链表中,则删除这个值
-	L.DelElement(6)
+	L.DelElement(6, utils.IntComparator)
 	L.Print()
 }
